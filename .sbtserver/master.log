@@ -12122,3 +12122,243 @@ All newly invalidated sources after taking into account (previously) recompiled 
 Total time: 1 s, completed Feb 24, 2016 5:44:24 PM
 > server-post-command-cleanup
 > server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@3fb4be08, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/home/kuulart/play-scala/app/controllers/clientControl.scala, /home/kuulart/play-scala/app/models/client.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/home/kuulart/play-scala/app/controllers/clientControl.scala, /home/kuulart/play-scala/app/models/client.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/home/kuulart/play-scala/app/controllers/clientControl.scala, /home/kuulart/play-scala/app/models/client.scala)
+
+Read from stdout: Compiling 2 Scala sources to /home/kuulart/play-scala/target/scala-2.11/classes...
+Compiling 2 Scala sources to /home/kuulart/play-scala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.6
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.6
+Other repositories:
+Default repositories:
+Running cached compiler 5b0996a1, interfacing (CompilerInterface) with Scala compiler version 2.11.6
+Calling Scala compiler with arguments  (CompilerInterface):
+	-deprecation
+	-unchecked
+	-encoding
+	utf8
+	-bootclasspath
+	/usr/lib/jvm/java-8-openjdk/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk/jre/classes:/home/kuulart/Activator/repository/org.scala-lang/scala-library/2.11.6/jars/scala-library.jar
+	-classpath
+	/home/kuulart/play-scala/target/scala-2.11/classes:/home/kuulart/Activator/repository/com.typesafe.play/twirl-api_2.11/1.1.1/jars/twirl-api_2.11.jar:/home/kuulart/Activator/repository/org.apache.commons/commons-lang3/3.4/jars/commons-lang3.jar:/home/kuulart/.ivy2/cache/org.scala-lang.modules/scala-xml_2.11/bundles/scala-xml_2.11-1.0.1.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-server_2.11/2.4.4/jars/play-server_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play_2.11/2.4.4/jars/play_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/build-link/2.4.4/jars/build-link.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-exceptions/2.4.4/jars/play-exceptions.jar:/home/kuulart/Activator/repository/org.javassist/javassist/3.19.0-GA/bundles/javassist.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-iteratees_2.11/2.4.4/jars/play-iteratees_2.11.jar:/home/kuulart/.ivy2/cache/org.scala-stm/scala-stm_2.11/jars/scala-stm_2.11-0.7.jar:/home/kuulart/Activator/repository/com.typesafe/config/1.3.0/bundles/config.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-json_2.11/2.4.4/jars/play-json_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-functional_2.11/2.4.4/jars/play-functional_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-datacommons_2.11/2.4.4/jars/play-datacommons_2.11.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.core/jackson-core/2.5.4/bundles/jackson-core.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.core/jackson-annotations/2.5.4/bundles/jackson-annotations.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.core/jackson-databind/2.5.4/bundles/jackson-databind.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/2.5.4/bundles/jackson-datatype-jdk8.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.5.4/bundles/jackson-datatype-jsr310.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-netty-utils/2.4.4/jars/play-netty-utils.jar:/home/kuulart/Activator/repository/org.slf4j/jul-to-slf4j/1.7.12/jars/jul-to-slf4j.jar:/home/kuulart/Activator/repository/org.slf4j/jcl-over-slf4j/1.7.12/jars/jcl-over-slf4j.jar:/home/kuulart/Activator/repository/ch.qos.logback/logback-core/1.1.3/jars/logback-core.jar:/home/kuulart/Activator/repository/ch.qos.logback/logback-classic/1.1.3/jars/logback-classic.jar:/home/kuulart/Activator/repository/com.typesafe.akka/akka-actor_2.11/2.3.13/jars/akka-actor_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.akka/akka-slf4j_2.11/2.3.13/jars/akka-slf4j_2.11.jar:/home/kuulart/Activator/repository/commons-codec/commons-codec/1.10/jars/commons-codec.jar:/home/kuulart/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.11.0.jar:/home/kuulart/.ivy2/cache/xml-apis/xml-apis/jars/xml-apis-1.4.01.jar:/home/kuulart/.ivy2/cache/javax.transaction/jta/jars/jta-1.1.jar:/home/kuulart/Activator/repository/com.google.inject/guice/4.0/jars/guice.jar:/home/kuulart/Activator/repository/javax.inject/javax.inject/1/jars/javax.inject.jar:/home/kuulart/Activator/repository/aopalliance/aopalliance/1.0/jars/aopalliance.jar:/home/kuulart/Activator/repository/com.google.inject.extensions/guice-assistedinject/4.0/jars/guice-assistedinject.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-netty-server_2.11/2.4.4/jars/play-netty-server_2.11.jar:/home/kuulart/Activator/repository/io.netty/netty/3.10.4.Final/bundles/netty.jar:/home/kuulart/Activator/repository/com.typesafe.netty/netty-http-pipelining/1.1.4/jars/netty-http-pipelining.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-jdbc_2.11/2.4.4/jars/play-jdbc_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-jdbc-api_2.11/2.4.4/jars/play-jdbc-api_2.11.jar:/home/kuulart/Activator/repository/com.jolbox/bonecp/0.8.0.RELEASE/bundles/bonecp.jar:/home/kuulart/Activator/repository/com.zaxxer/HikariCP/2.3.7/bundles/HikariCP.jar:/home/kuulart/.ivy2/cache/com.h2database/h2/jars/h2-1.4.191.jar:/home/kuulart/Activator/repository/tyrex/tyrex/1.0.1/jars/tyrex.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-cache_2.11/2.4.4/jars/play-cache_2.11.jar:/home/kuulart/Activator/repository/net.sf.ehcache/ehcache-core/2.6.11/jars/ehcache-core.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-ws_2.11/2.4.4/jars/play-ws_2.11.jar:/home/kuulart/Activator/repository/com.google.guava/guava/18.0/bundles/guava.jar:/home/kuulart/Activator/repository/com.ning/async-http-client/1.9.21/jars/async-http-client.jar:/home/kuulart/.ivy2/cache/oauth.signpost/signpost-core/jars/signpost-core-1.2.1.2.jar:/home/kuulart/.ivy2/cache/oauth.signpost/signpost-commonshttp4/jars/signpost-commonshttp4-1.2.1.2.jar:/home/kuulart/Activator/repository/org.apache.httpcomponents/httpcore/4.0.1/jars/httpcore.jar:/home/kuulart/Activator/repository/org.apache.httpcomponents/httpclient/4.0.1/jars/httpclient.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc_2.11/jars/scalikejdbc_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-core_2.11/jars/scalikejdbc-core_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.apache.commons/commons-dbcp2/jars/commons-dbcp2-2.1.1.jar:/home/kuulart/.ivy2/cache/org.apache.commons/commons-pool2/jars/commons-pool2-2.4.2.jar:/home/kuulart/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.2.jar:/home/kuulart/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.14.jar:/home/kuulart/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.9.2.jar:/home/kuulart/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.8.1.jar:/home/kuulart/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.11/bundles/scala-parser-combinators_2.11-1.0.4.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-interpolation_2.11/jars/scalikejdbc-interpolation_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-interpolation-macro_2.11/jars/scalikejdbc-interpolation-macro_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.11.7.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-config_2.11/jars/scalikejdbc-config_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-play-initializer_2.11/jars/scalikejdbc-play-initializer_2.11-2.4.3.jar:/home/kuulart/.ivy2/cache/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.18.jar
+Scala compilation took 0.967184457 s
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed Feb 24, 2016 6:12:53 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@39598643, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/home/kuulart/play-scala/app/models/client.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/home/kuulart/play-scala/app/models/client.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/home/kuulart/play-scala/app/models/client.scala)
+
+Read from stdout: Compiling 1 Scala source to /home/kuulart/play-scala/target/scala-2.11/classes...
+Compiling 1 Scala source to /home/kuulart/play-scala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.6
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.6
+Other repositories:
+Default repositories:
+Running cached compiler 2247e5e2, interfacing (CompilerInterface) with Scala compiler version 2.11.6
+Calling Scala compiler with arguments  (CompilerInterface):
+	-deprecation
+	-unchecked
+	-encoding
+	utf8
+	-bootclasspath
+	/usr/lib/jvm/java-8-openjdk/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk/jre/classes:/home/kuulart/Activator/repository/org.scala-lang/scala-library/2.11.6/jars/scala-library.jar
+	-classpath
+	/home/kuulart/play-scala/target/scala-2.11/classes:/home/kuulart/Activator/repository/com.typesafe.play/twirl-api_2.11/1.1.1/jars/twirl-api_2.11.jar:/home/kuulart/Activator/repository/org.apache.commons/commons-lang3/3.4/jars/commons-lang3.jar:/home/kuulart/.ivy2/cache/org.scala-lang.modules/scala-xml_2.11/bundles/scala-xml_2.11-1.0.1.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-server_2.11/2.4.4/jars/play-server_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play_2.11/2.4.4/jars/play_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/build-link/2.4.4/jars/build-link.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-exceptions/2.4.4/jars/play-exceptions.jar:/home/kuulart/Activator/repository/org.javassist/javassist/3.19.0-GA/bundles/javassist.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-iteratees_2.11/2.4.4/jars/play-iteratees_2.11.jar:/home/kuulart/.ivy2/cache/org.scala-stm/scala-stm_2.11/jars/scala-stm_2.11-0.7.jar:/home/kuulart/Activator/repository/com.typesafe/config/1.3.0/bundles/config.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-json_2.11/2.4.4/jars/play-json_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-functional_2.11/2.4.4/jars/play-functional_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-datacommons_2.11/2.4.4/jars/play-datacommons_2.11.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.core/jackson-core/2.5.4/bundles/jackson-core.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.core/jackson-annotations/2.5.4/bundles/jackson-annotations.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.core/jackson-databind/2.5.4/bundles/jackson-databind.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/2.5.4/bundles/jackson-datatype-jdk8.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.5.4/bundles/jackson-datatype-jsr310.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-netty-utils/2.4.4/jars/play-netty-utils.jar:/home/kuulart/Activator/repository/org.slf4j/jul-to-slf4j/1.7.12/jars/jul-to-slf4j.jar:/home/kuulart/Activator/repository/org.slf4j/jcl-over-slf4j/1.7.12/jars/jcl-over-slf4j.jar:/home/kuulart/Activator/repository/ch.qos.logback/logback-core/1.1.3/jars/logback-core.jar:/home/kuulart/Activator/repository/ch.qos.logback/logback-classic/1.1.3/jars/logback-classic.jar:/home/kuulart/Activator/repository/com.typesafe.akka/akka-actor_2.11/2.3.13/jars/akka-actor_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.akka/akka-slf4j_2.11/2.3.13/jars/akka-slf4j_2.11.jar:/home/kuulart/Activator/repository/commons-codec/commons-codec/1.10/jars/commons-codec.jar:/home/kuulart/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.11.0.jar:/home/kuulart/.ivy2/cache/xml-apis/xml-apis/jars/xml-apis-1.4.01.jar:/home/kuulart/.ivy2/cache/javax.transaction/jta/jars/jta-1.1.jar:/home/kuulart/Activator/repository/com.google.inject/guice/4.0/jars/guice.jar:/home/kuulart/Activator/repository/javax.inject/javax.inject/1/jars/javax.inject.jar:/home/kuulart/Activator/repository/aopalliance/aopalliance/1.0/jars/aopalliance.jar:/home/kuulart/Activator/repository/com.google.inject.extensions/guice-assistedinject/4.0/jars/guice-assistedinject.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-netty-server_2.11/2.4.4/jars/play-netty-server_2.11.jar:/home/kuulart/Activator/repository/io.netty/netty/3.10.4.Final/bundles/netty.jar:/home/kuulart/Activator/repository/com.typesafe.netty/netty-http-pipelining/1.1.4/jars/netty-http-pipelining.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-jdbc_2.11/2.4.4/jars/play-jdbc_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-jdbc-api_2.11/2.4.4/jars/play-jdbc-api_2.11.jar:/home/kuulart/Activator/repository/com.jolbox/bonecp/0.8.0.RELEASE/bundles/bonecp.jar:/home/kuulart/Activator/repository/com.zaxxer/HikariCP/2.3.7/bundles/HikariCP.jar:/home/kuulart/.ivy2/cache/com.h2database/h2/jars/h2-1.4.191.jar:/home/kuulart/Activator/repository/tyrex/tyrex/1.0.1/jars/tyrex.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-cache_2.11/2.4.4/jars/play-cache_2.11.jar:/home/kuulart/Activator/repository/net.sf.ehcache/ehcache-core/2.6.11/jars/ehcache-core.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-ws_2.11/2.4.4/jars/play-ws_2.11.jar:/home/kuulart/Activator/repository/com.google.guava/guava/18.0/bundles/guava.jar:/home/kuulart/Activator/repository/com.ning/async-http-client/1.9.21/jars/async-http-client.jar:/home/kuulart/.ivy2/cache/oauth.signpost/signpost-core/jars/signpost-core-1.2.1.2.jar:/home/kuulart/.ivy2/cache/oauth.signpost/signpost-commonshttp4/jars/signpost-commonshttp4-1.2.1.2.jar:/home/kuulart/Activator/repository/org.apache.httpcomponents/httpcore/4.0.1/jars/httpcore.jar:/home/kuulart/Activator/repository/org.apache.httpcomponents/httpclient/4.0.1/jars/httpclient.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc_2.11/jars/scalikejdbc_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-core_2.11/jars/scalikejdbc-core_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.apache.commons/commons-dbcp2/jars/commons-dbcp2-2.1.1.jar:/home/kuulart/.ivy2/cache/org.apache.commons/commons-pool2/jars/commons-pool2-2.4.2.jar:/home/kuulart/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.2.jar:/home/kuulart/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.14.jar:/home/kuulart/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.9.2.jar:/home/kuulart/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.8.1.jar:/home/kuulart/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.11/bundles/scala-parser-combinators_2.11-1.0.4.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-interpolation_2.11/jars/scalikejdbc-interpolation_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-interpolation-macro_2.11/jars/scalikejdbc-interpolation-macro_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.11.7.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-config_2.11/jars/scalikejdbc-config_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-play-initializer_2.11/jars/scalikejdbc-play-initializer_2.11-2.4.3.jar:/home/kuulart/.ivy2/cache/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.18.jar
+Scala compilation took 0.897037782 s
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed Feb 24, 2016 6:19:32 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@61fa7493, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/home/kuulart/play-scala/app/models/client.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/home/kuulart/play-scala/app/models/client.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/home/kuulart/play-scala/app/models/client.scala)
+
+Read from stdout: Compiling 1 Scala source to /home/kuulart/play-scala/target/scala-2.11/classes...
+Compiling 1 Scala source to /home/kuulart/play-scala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.6
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.6
+Other repositories:
+Default repositories:
+Running cached compiler 3361ee80, interfacing (CompilerInterface) with Scala compiler version 2.11.6
+Calling Scala compiler with arguments  (CompilerInterface):
+	-deprecation
+	-unchecked
+	-encoding
+	utf8
+	-bootclasspath
+	/usr/lib/jvm/java-8-openjdk/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk/jre/classes:/home/kuulart/Activator/repository/org.scala-lang/scala-library/2.11.6/jars/scala-library.jar
+	-classpath
+	/home/kuulart/play-scala/target/scala-2.11/classes:/home/kuulart/Activator/repository/com.typesafe.play/twirl-api_2.11/1.1.1/jars/twirl-api_2.11.jar:/home/kuulart/Activator/repository/org.apache.commons/commons-lang3/3.4/jars/commons-lang3.jar:/home/kuulart/.ivy2/cache/org.scala-lang.modules/scala-xml_2.11/bundles/scala-xml_2.11-1.0.1.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-server_2.11/2.4.4/jars/play-server_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play_2.11/2.4.4/jars/play_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/build-link/2.4.4/jars/build-link.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-exceptions/2.4.4/jars/play-exceptions.jar:/home/kuulart/Activator/repository/org.javassist/javassist/3.19.0-GA/bundles/javassist.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-iteratees_2.11/2.4.4/jars/play-iteratees_2.11.jar:/home/kuulart/.ivy2/cache/org.scala-stm/scala-stm_2.11/jars/scala-stm_2.11-0.7.jar:/home/kuulart/Activator/repository/com.typesafe/config/1.3.0/bundles/config.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-json_2.11/2.4.4/jars/play-json_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-functional_2.11/2.4.4/jars/play-functional_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-datacommons_2.11/2.4.4/jars/play-datacommons_2.11.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.core/jackson-core/2.5.4/bundles/jackson-core.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.core/jackson-annotations/2.5.4/bundles/jackson-annotations.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.core/jackson-databind/2.5.4/bundles/jackson-databind.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/2.5.4/bundles/jackson-datatype-jdk8.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.5.4/bundles/jackson-datatype-jsr310.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-netty-utils/2.4.4/jars/play-netty-utils.jar:/home/kuulart/Activator/repository/org.slf4j/jul-to-slf4j/1.7.12/jars/jul-to-slf4j.jar:/home/kuulart/Activator/repository/org.slf4j/jcl-over-slf4j/1.7.12/jars/jcl-over-slf4j.jar:/home/kuulart/Activator/repository/ch.qos.logback/logback-core/1.1.3/jars/logback-core.jar:/home/kuulart/Activator/repository/ch.qos.logback/logback-classic/1.1.3/jars/logback-classic.jar:/home/kuulart/Activator/repository/com.typesafe.akka/akka-actor_2.11/2.3.13/jars/akka-actor_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.akka/akka-slf4j_2.11/2.3.13/jars/akka-slf4j_2.11.jar:/home/kuulart/Activator/repository/commons-codec/commons-codec/1.10/jars/commons-codec.jar:/home/kuulart/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.11.0.jar:/home/kuulart/.ivy2/cache/xml-apis/xml-apis/jars/xml-apis-1.4.01.jar:/home/kuulart/.ivy2/cache/javax.transaction/jta/jars/jta-1.1.jar:/home/kuulart/Activator/repository/com.google.inject/guice/4.0/jars/guice.jar:/home/kuulart/Activator/repository/javax.inject/javax.inject/1/jars/javax.inject.jar:/home/kuulart/Activator/repository/aopalliance/aopalliance/1.0/jars/aopalliance.jar:/home/kuulart/Activator/repository/com.google.inject.extensions/guice-assistedinject/4.0/jars/guice-assistedinject.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-netty-server_2.11/2.4.4/jars/play-netty-server_2.11.jar:/home/kuulart/Activator/repository/io.netty/netty/3.10.4.Final/bundles/netty.jar:/home/kuulart/Activator/repository/com.typesafe.netty/netty-http-pipelining/1.1.4/jars/netty-http-pipelining.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-jdbc_2.11/2.4.4/jars/play-jdbc_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-jdbc-api_2.11/2.4.4/jars/play-jdbc-api_2.11.jar:/home/kuulart/Activator/repository/com.jolbox/bonecp/0.8.0.RELEASE/bundles/bonecp.jar:/home/kuulart/Activator/repository/com.zaxxer/HikariCP/2.3.7/bundles/HikariCP.jar:/home/kuulart/.ivy2/cache/com.h2database/h2/jars/h2-1.4.191.jar:/home/kuulart/Activator/repository/tyrex/tyrex/1.0.1/jars/tyrex.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-cache_2.11/2.4.4/jars/play-cache_2.11.jar:/home/kuulart/Activator/repository/net.sf.ehcache/ehcache-core/2.6.11/jars/ehcache-core.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-ws_2.11/2.4.4/jars/play-ws_2.11.jar:/home/kuulart/Activator/repository/com.google.guava/guava/18.0/bundles/guava.jar:/home/kuulart/Activator/repository/com.ning/async-http-client/1.9.21/jars/async-http-client.jar:/home/kuulart/.ivy2/cache/oauth.signpost/signpost-core/jars/signpost-core-1.2.1.2.jar:/home/kuulart/.ivy2/cache/oauth.signpost/signpost-commonshttp4/jars/signpost-commonshttp4-1.2.1.2.jar:/home/kuulart/Activator/repository/org.apache.httpcomponents/httpcore/4.0.1/jars/httpcore.jar:/home/kuulart/Activator/repository/org.apache.httpcomponents/httpclient/4.0.1/jars/httpclient.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc_2.11/jars/scalikejdbc_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-core_2.11/jars/scalikejdbc-core_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.apache.commons/commons-dbcp2/jars/commons-dbcp2-2.1.1.jar:/home/kuulart/.ivy2/cache/org.apache.commons/commons-pool2/jars/commons-pool2-2.4.2.jar:/home/kuulart/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.2.jar:/home/kuulart/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.14.jar:/home/kuulart/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.9.2.jar:/home/kuulart/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.8.1.jar:/home/kuulart/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.11/bundles/scala-parser-combinators_2.11-1.0.4.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-interpolation_2.11/jars/scalikejdbc-interpolation_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-interpolation-macro_2.11/jars/scalikejdbc-interpolation-macro_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.11.7.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-config_2.11/jars/scalikejdbc-config_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-play-initializer_2.11/jars/scalikejdbc-play-initializer_2.11-2.4.3.jar:/home/kuulart/.ivy2/cache/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.18.jar
+Scala compilation took 0.984968933 s
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed Feb 24, 2016 6:20:24 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@45b73679, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/home/kuulart/play-scala/app/models/client.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/home/kuulart/play-scala/app/models/client.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/home/kuulart/play-scala/app/models/client.scala)
+
+Read from stdout: Compiling 1 Scala source to /home/kuulart/play-scala/target/scala-2.11/classes...
+Compiling 1 Scala source to /home/kuulart/play-scala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.6
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.6
+Other repositories:
+Default repositories:
+Running cached compiler 3143b57a, interfacing (CompilerInterface) with Scala compiler version 2.11.6
+Calling Scala compiler with arguments  (CompilerInterface):
+	-deprecation
+	-unchecked
+	-encoding
+	utf8
+	-bootclasspath
+	/usr/lib/jvm/java-8-openjdk/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk/jre/classes:/home/kuulart/Activator/repository/org.scala-lang/scala-library/2.11.6/jars/scala-library.jar
+	-classpath
+	/home/kuulart/play-scala/target/scala-2.11/classes:/home/kuulart/Activator/repository/com.typesafe.play/twirl-api_2.11/1.1.1/jars/twirl-api_2.11.jar:/home/kuulart/Activator/repository/org.apache.commons/commons-lang3/3.4/jars/commons-lang3.jar:/home/kuulart/.ivy2/cache/org.scala-lang.modules/scala-xml_2.11/bundles/scala-xml_2.11-1.0.1.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-server_2.11/2.4.4/jars/play-server_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play_2.11/2.4.4/jars/play_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/build-link/2.4.4/jars/build-link.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-exceptions/2.4.4/jars/play-exceptions.jar:/home/kuulart/Activator/repository/org.javassist/javassist/3.19.0-GA/bundles/javassist.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-iteratees_2.11/2.4.4/jars/play-iteratees_2.11.jar:/home/kuulart/.ivy2/cache/org.scala-stm/scala-stm_2.11/jars/scala-stm_2.11-0.7.jar:/home/kuulart/Activator/repository/com.typesafe/config/1.3.0/bundles/config.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-json_2.11/2.4.4/jars/play-json_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-functional_2.11/2.4.4/jars/play-functional_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-datacommons_2.11/2.4.4/jars/play-datacommons_2.11.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.core/jackson-core/2.5.4/bundles/jackson-core.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.core/jackson-annotations/2.5.4/bundles/jackson-annotations.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.core/jackson-databind/2.5.4/bundles/jackson-databind.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/2.5.4/bundles/jackson-datatype-jdk8.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.5.4/bundles/jackson-datatype-jsr310.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-netty-utils/2.4.4/jars/play-netty-utils.jar:/home/kuulart/Activator/repository/org.slf4j/jul-to-slf4j/1.7.12/jars/jul-to-slf4j.jar:/home/kuulart/Activator/repository/org.slf4j/jcl-over-slf4j/1.7.12/jars/jcl-over-slf4j.jar:/home/kuulart/Activator/repository/ch.qos.logback/logback-core/1.1.3/jars/logback-core.jar:/home/kuulart/Activator/repository/ch.qos.logback/logback-classic/1.1.3/jars/logback-classic.jar:/home/kuulart/Activator/repository/com.typesafe.akka/akka-actor_2.11/2.3.13/jars/akka-actor_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.akka/akka-slf4j_2.11/2.3.13/jars/akka-slf4j_2.11.jar:/home/kuulart/Activator/repository/commons-codec/commons-codec/1.10/jars/commons-codec.jar:/home/kuulart/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.11.0.jar:/home/kuulart/.ivy2/cache/xml-apis/xml-apis/jars/xml-apis-1.4.01.jar:/home/kuulart/.ivy2/cache/javax.transaction/jta/jars/jta-1.1.jar:/home/kuulart/Activator/repository/com.google.inject/guice/4.0/jars/guice.jar:/home/kuulart/Activator/repository/javax.inject/javax.inject/1/jars/javax.inject.jar:/home/kuulart/Activator/repository/aopalliance/aopalliance/1.0/jars/aopalliance.jar:/home/kuulart/Activator/repository/com.google.inject.extensions/guice-assistedinject/4.0/jars/guice-assistedinject.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-netty-server_2.11/2.4.4/jars/play-netty-server_2.11.jar:/home/kuulart/Activator/repository/io.netty/netty/3.10.4.Final/bundles/netty.jar:/home/kuulart/Activator/repository/com.typesafe.netty/netty-http-pipelining/1.1.4/jars/netty-http-pipelining.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-jdbc_2.11/2.4.4/jars/play-jdbc_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-jdbc-api_2.11/2.4.4/jars/play-jdbc-api_2.11.jar:/home/kuulart/Activator/repository/com.jolbox/bonecp/0.8.0.RELEASE/bundles/bonecp.jar:/home/kuulart/Activator/repository/com.zaxxer/HikariCP/2.3.7/bundles/HikariCP.jar:/home/kuulart/.ivy2/cache/com.h2database/h2/jars/h2-1.4.191.jar:/home/kuulart/Activator/repository/tyrex/tyrex/1.0.1/jars/tyrex.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-cache_2.11/2.4.4/jars/play-cache_2.11.jar:/home/kuulart/Activator/repository/net.sf.ehcache/ehcache-core/2.6.11/jars/ehcache-core.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-ws_2.11/2.4.4/jars/play-ws_2.11.jar:/home/kuulart/Activator/repository/com.google.guava/guava/18.0/bundles/guava.jar:/home/kuulart/Activator/repository/com.ning/async-http-client/1.9.21/jars/async-http-client.jar:/home/kuulart/.ivy2/cache/oauth.signpost/signpost-core/jars/signpost-core-1.2.1.2.jar:/home/kuulart/.ivy2/cache/oauth.signpost/signpost-commonshttp4/jars/signpost-commonshttp4-1.2.1.2.jar:/home/kuulart/Activator/repository/org.apache.httpcomponents/httpcore/4.0.1/jars/httpcore.jar:/home/kuulart/Activator/repository/org.apache.httpcomponents/httpclient/4.0.1/jars/httpclient.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc_2.11/jars/scalikejdbc_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-core_2.11/jars/scalikejdbc-core_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.apache.commons/commons-dbcp2/jars/commons-dbcp2-2.1.1.jar:/home/kuulart/.ivy2/cache/org.apache.commons/commons-pool2/jars/commons-pool2-2.4.2.jar:/home/kuulart/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.2.jar:/home/kuulart/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.14.jar:/home/kuulart/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.9.2.jar:/home/kuulart/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.8.1.jar:/home/kuulart/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.11/bundles/scala-parser-combinators_2.11-1.0.4.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-interpolation_2.11/jars/scalikejdbc-interpolation_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-interpolation-macro_2.11/jars/scalikejdbc-interpolation-macro_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.11.7.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-config_2.11/jars/scalikejdbc-config_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-play-initializer_2.11/jars/scalikejdbc-play-initializer_2.11-2.4.3.jar:/home/kuulart/.ivy2/cache/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.18.jar
+Scala compilation took 0.677916941 s
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed Feb 24, 2016 6:23:25 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@a7a9f62, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/home/kuulart/play-scala/app/controllers/clientControl.scala, /home/kuulart/play-scala/target/scala-2.11/routes/main/router/Routes.scala, /home/kuulart/play-scala/target/scala-2.11/routes/main/controllers/ReverseRoutes.scala, /home/kuulart/play-scala/app/models/client.scala, /home/kuulart/play-scala/target/scala-2.11/routes/main/controllers/routes.java, /home/kuulart/play-scala/target/scala-2.11/routes/main/router/RoutesPrefix.scala, /home/kuulart/play-scala/target/scala-2.11/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/home/kuulart/play-scala/app/controllers/clientControl.scala, /home/kuulart/play-scala/target/scala-2.11/routes/main/router/Routes.scala, /home/kuulart/play-scala/target/scala-2.11/routes/main/controllers/ReverseRoutes.scala, /home/kuulart/play-scala/app/models/client.scala, /home/kuulart/play-scala/target/scala-2.11/routes/main/controllers/routes.java, /home/kuulart/play-scala/target/scala-2.11/routes/main/router/RoutesPrefix.scala, /home/kuulart/play-scala/target/scala-2.11/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/home/kuulart/play-scala/app/controllers/clientControl.scala, /home/kuulart/play-scala/target/scala-2.11/routes/main/router/Routes.scala, /home/kuulart/play-scala/target/scala-2.11/routes/main/controllers/ReverseRoutes.scala, /home/kuulart/play-scala/app/models/client.scala, /home/kuulart/play-scala/target/scala-2.11/routes/main/controllers/routes.java, /home/kuulart/play-scala/target/scala-2.11/routes/main/router/RoutesPrefix.scala, /home/kuulart/play-scala/target/scala-2.11/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala)
+
+Recompiling all 10 sources: invalidated sources (7) exceeded 50.0% of all sources
+Read from stdout: Compiling 9 Scala sources and 1 Java source to /home/kuulart/play-scala/target/scala-2.11/classes...
+Compiling 9 Scala sources and 1 Java source to /home/kuulart/play-scala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.6
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.6
+Other repositories:
+Default repositories:
+Running cached compiler 529c46a7, interfacing (CompilerInterface) with Scala compiler version 2.11.6
+Calling Scala compiler with arguments  (CompilerInterface):
+	-deprecation
+	-unchecked
+	-encoding
+	utf8
+	-bootclasspath
+	/usr/lib/jvm/java-8-openjdk/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk/jre/classes:/home/kuulart/Activator/repository/org.scala-lang/scala-library/2.11.6/jars/scala-library.jar
+	-classpath
+	/home/kuulart/play-scala/target/scala-2.11/classes:/home/kuulart/Activator/repository/com.typesafe.play/twirl-api_2.11/1.1.1/jars/twirl-api_2.11.jar:/home/kuulart/Activator/repository/org.apache.commons/commons-lang3/3.4/jars/commons-lang3.jar:/home/kuulart/.ivy2/cache/org.scala-lang.modules/scala-xml_2.11/bundles/scala-xml_2.11-1.0.1.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-server_2.11/2.4.4/jars/play-server_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play_2.11/2.4.4/jars/play_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/build-link/2.4.4/jars/build-link.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-exceptions/2.4.4/jars/play-exceptions.jar:/home/kuulart/Activator/repository/org.javassist/javassist/3.19.0-GA/bundles/javassist.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-iteratees_2.11/2.4.4/jars/play-iteratees_2.11.jar:/home/kuulart/.ivy2/cache/org.scala-stm/scala-stm_2.11/jars/scala-stm_2.11-0.7.jar:/home/kuulart/Activator/repository/com.typesafe/config/1.3.0/bundles/config.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-json_2.11/2.4.4/jars/play-json_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-functional_2.11/2.4.4/jars/play-functional_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-datacommons_2.11/2.4.4/jars/play-datacommons_2.11.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.core/jackson-core/2.5.4/bundles/jackson-core.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.core/jackson-annotations/2.5.4/bundles/jackson-annotations.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.core/jackson-databind/2.5.4/bundles/jackson-databind.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/2.5.4/bundles/jackson-datatype-jdk8.jar:/home/kuulart/Activator/repository/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.5.4/bundles/jackson-datatype-jsr310.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-netty-utils/2.4.4/jars/play-netty-utils.jar:/home/kuulart/Activator/repository/org.slf4j/jul-to-slf4j/1.7.12/jars/jul-to-slf4j.jar:/home/kuulart/Activator/repository/org.slf4j/jcl-over-slf4j/1.7.12/jars/jcl-over-slf4j.jar:/home/kuulart/Activator/repository/ch.qos.logback/logback-core/1.1.3/jars/logback-core.jar:/home/kuulart/Activator/repository/ch.qos.logback/logback-classic/1.1.3/jars/logback-classic.jar:/home/kuulart/Activator/repository/com.typesafe.akka/akka-actor_2.11/2.3.13/jars/akka-actor_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.akka/akka-slf4j_2.11/2.3.13/jars/akka-slf4j_2.11.jar:/home/kuulart/Activator/repository/commons-codec/commons-codec/1.10/jars/commons-codec.jar:/home/kuulart/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.11.0.jar:/home/kuulart/.ivy2/cache/xml-apis/xml-apis/jars/xml-apis-1.4.01.jar:/home/kuulart/.ivy2/cache/javax.transaction/jta/jars/jta-1.1.jar:/home/kuulart/Activator/repository/com.google.inject/guice/4.0/jars/guice.jar:/home/kuulart/Activator/repository/javax.inject/javax.inject/1/jars/javax.inject.jar:/home/kuulart/Activator/repository/aopalliance/aopalliance/1.0/jars/aopalliance.jar:/home/kuulart/Activator/repository/com.google.inject.extensions/guice-assistedinject/4.0/jars/guice-assistedinject.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-netty-server_2.11/2.4.4/jars/play-netty-server_2.11.jar:/home/kuulart/Activator/repository/io.netty/netty/3.10.4.Final/bundles/netty.jar:/home/kuulart/Activator/repository/com.typesafe.netty/netty-http-pipelining/1.1.4/jars/netty-http-pipelining.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-jdbc_2.11/2.4.4/jars/play-jdbc_2.11.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-jdbc-api_2.11/2.4.4/jars/play-jdbc-api_2.11.jar:/home/kuulart/Activator/repository/com.jolbox/bonecp/0.8.0.RELEASE/bundles/bonecp.jar:/home/kuulart/Activator/repository/com.zaxxer/HikariCP/2.3.7/bundles/HikariCP.jar:/home/kuulart/.ivy2/cache/com.h2database/h2/jars/h2-1.4.191.jar:/home/kuulart/Activator/repository/tyrex/tyrex/1.0.1/jars/tyrex.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-cache_2.11/2.4.4/jars/play-cache_2.11.jar:/home/kuulart/Activator/repository/net.sf.ehcache/ehcache-core/2.6.11/jars/ehcache-core.jar:/home/kuulart/Activator/repository/com.typesafe.play/play-ws_2.11/2.4.4/jars/play-ws_2.11.jar:/home/kuulart/Activator/repository/com.google.guava/guava/18.0/bundles/guava.jar:/home/kuulart/Activator/repository/com.ning/async-http-client/1.9.21/jars/async-http-client.jar:/home/kuulart/.ivy2/cache/oauth.signpost/signpost-core/jars/signpost-core-1.2.1.2.jar:/home/kuulart/.ivy2/cache/oauth.signpost/signpost-commonshttp4/jars/signpost-commonshttp4-1.2.1.2.jar:/home/kuulart/Activator/repository/org.apache.httpcomponents/httpcore/4.0.1/jars/httpcore.jar:/home/kuulart/Activator/repository/org.apache.httpcomponents/httpclient/4.0.1/jars/httpclient.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc_2.11/jars/scalikejdbc_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-core_2.11/jars/scalikejdbc-core_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.apache.commons/commons-dbcp2/jars/commons-dbcp2-2.1.1.jar:/home/kuulart/.ivy2/cache/org.apache.commons/commons-pool2/jars/commons-pool2-2.4.2.jar:/home/kuulart/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.2.jar:/home/kuulart/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.14.jar:/home/kuulart/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.9.2.jar:/home/kuulart/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.8.1.jar:/home/kuulart/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.11/bundles/scala-parser-combinators_2.11-1.0.4.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-interpolation_2.11/jars/scalikejdbc-interpolation_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-interpolation-macro_2.11/jars/scalikejdbc-interpolation-macro_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.11.7.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-config_2.11/jars/scalikejdbc-config_2.11-2.3.5.jar:/home/kuulart/.ivy2/cache/org.scalikejdbc/scalikejdbc-play-initializer_2.11/jars/scalikejdbc-play-initializer_2.11-2.4.3.jar:/home/kuulart/.ivy2/cache/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.18.jar
+Scala compilation took 1.65095109 s
+Attempting to call com.sun.tools.javac.api.JavacTool@3665df directly...
+Java compilation took 0.058172202 s
+Java analysis took 0.022049226 s
+Java compile + analysis took 0.082359759 s
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 2 s, completed Feb 24, 2016 6:27:17 PM
+> server-post-command-cleanup
+> server-handle-next-server-request

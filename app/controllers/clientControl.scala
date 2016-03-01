@@ -16,7 +16,9 @@ import play.api.libs.json._
   */
 class clientControl extends Controller{
 
-
+  /**
+    *
+    */
   implicit val clientWrites = new Writes[client] {
     def writes(client: client) = Json.obj(
       "name" -> client.name,
@@ -25,6 +27,9 @@ class clientControl extends Controller{
 
   case class clientData(name: String, discount: Int)
 
+  /**
+    *
+    */
   val userForm = Form(
     mapping(
       "name" -> text.verifying(nonEmpty),
@@ -33,8 +38,11 @@ class clientControl extends Controller{
   )
 
 
-  /*
-   * 
+ /** controller which calls find() method from client model with provided ID
+   * if clients.find(ID) returns a value provided in the braces then the
+   * following  action is executed. In this case Ok method is from play framework which
+   * sets the content type in the braces as text/html otherwise if it returns nothing
+   * then says not found
    */
   def show(ID: Long) = Action {
     clients.find(ID) match {
@@ -43,12 +51,19 @@ class clientControl extends Controller{
     }
   }
 
+  /**
+    *this controller calls findAll() model method and sets it as text/html
+    * @return
+    */
   def showAll = Action {
     val clientsList = clients.findAll()
     Ok(Json.toJson(clientsList))
   }
 
-
+  /**
+    *
+    * @return
+    */
     def addValue = Action { implicit request =>
       userForm.bindFromRequest.fold(
         formWithErrors => {
