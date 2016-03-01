@@ -5,4 +5,7 @@ target
 /.classpath
 /.project
 /.settings
+projectFilesBackup
+projectFilesBackup1
+.sbtserver
 /RUNNING_PID
