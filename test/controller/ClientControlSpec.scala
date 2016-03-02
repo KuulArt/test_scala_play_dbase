@@ -22,46 +22,47 @@ import play.api.db.evolutions._
 /**
   * Created by kuulart on 16.2.3.
   */
-trait DatabaseContext extends AroundEach with settings.DBSettings{
-  // you need to define the "around" method
-  def around[R: AsResult](r: => R): Result = {
-    //def db = NamedDB('testdb).toDB
-    openDatabaseTransaction
-    try AsResult(r)
-    finally closeDatabaseTransaction
-  }
-  // do what you need to do with the database
-  def openDatabaseTransaction = withMyDatabase { testdb =>
-    //NamedDB('testdb)
-    settings.DBSettings.initialize()
-    val connection = testdb.getConnection()
-    Evolutions.applyEvolutions(testdb)
-  }
-  def closeDatabaseTransaction = withMyDatabase { testdb =>
-    val connection = testdb.shutdown()
-    Evolutions.cleanupEvolutions(testdb)
-  }
-  def withMyDatabase[T](block: Database => T) = {
-    Databases.inMemory(
-      name = "testdb",
-      urlOptions = Map(
-        "MODE" -> "MYSQL"
-      ),
-      config = Map(
-        "logStatements" -> true
-      )
-    )
-  }
-}
+//trait DatabaseContext extends AroundEach with settings.DBSettings{
+//  // you need to define the "around" method
+//  def around[R: AsResult](r: => R): Result = {
+//    //def db = NamedDB('testdb).toDB
+//    openDatabaseTransaction
+//    try AsResult(r)
+//    finally closeDatabaseTransaction
+//  }
+//  // do what you need to do with the database
+//  def openDatabaseTransaction = withMyDatabase { testdb =>
+//    //NamedDB('testdb)
+//    settings.DBSettings.initialize()
+//    val connection = testdb.getConnection()
+//    Evolutions.applyEvolutions(testdb)
+//  }
+//  def closeDatabaseTransaction = withMyDatabase { testdb =>
+//    val connection = testdb.shutdown()
+//    Evolutions.cleanupEvolutions(testdb)
+//  }
+//  def withMyDatabase[T](block: Database => T) = {
+//    Databases.inMemory(
+//      name = "testdb",
+//      urlOptions = Map(
+//        "MODE" -> "MYSQL"
+//      ),
+//      config = Map(
+//        "logStatements" -> true
+//      )
+//    )
+//  }
+//}
 
 
 
-class ClientControlSpec extends Specification with DatabaseContext with settings.DBSettings{
+class ClientControlSpec extends Specification with settings.DBSettings {
 
+  val appWithMemoryDatabase = FakeApplication(additionalConfiguration = inMemoryDatabase("test"))
 
 
   "Client Controller" should {
-    "respond to the index Action" in {
+    "respond to the index Action" in new WithApplication(appWithMemoryDatabase) {
         val json = new controllers.clientControl().showAll()(FakeRequest())
         println(Json.parse(contentAsString(json)))
         status(json) must equalTo(OK)
