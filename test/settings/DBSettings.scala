@@ -14,7 +14,7 @@ object DBSettings {
     if (isInitialized) return
     DBs.setupAll()
     GlobalSettings.loggingSQLErrors = false
-    GlobalSettings.sqlFormatter = SQLFormatterSettings("utils.HibernateSQLFormatter")
+    //GlobalSettings.sqlFormatter = SQLFormatterSettings("utils.HibernateSQLFormatter")
     DBInitializer.run()
     isInitialized = true
   }
@@ -24,12 +24,12 @@ object DBSettings {
 object DBInitializer {
 
   def run() {
-    DB readOnly { implicit s =>
+    NamedDB('testdb) readOnly { implicit s =>
       try {
         sql"select 1 from programmer limit 1".map(_.long(1)).single.apply()
       } catch {
         case e: java.sql.SQLException =>
-          DB autoCommit { implicit s =>
+          NamedDB('testdb) autoCommit { implicit s =>
             sql"""
 
 create table clients(
@@ -39,9 +39,7 @@ discount TINYINT(3) unsigned,
 PRIMARY KEY ( ID )
 );
 
-INSERT INTO clients values
-(null, "prosound", 20),
-;
+INSERT INTO clients values (null, 'prosound', 20);
 
    """.execute.apply()
           }

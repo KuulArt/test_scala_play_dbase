@@ -12,6 +12,7 @@ class ClientSpec extends Specification with settings.DBSettings {
   val _p = clients.c
 
     trait AutoRollbackWithFixture extends AutoRollback {
+//      override def db = NamedDB('testdb).toDB
       override def fixture(implicit session: DBSession) {
 
         val user1 = clients.create("user1", 20)
