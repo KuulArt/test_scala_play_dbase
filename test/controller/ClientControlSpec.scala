@@ -22,24 +22,25 @@ import play.api.db.evolutions._
 /**
   * Created by kuulart on 16.2.3.
   */
-class ClientControlSpec extends Specification {
-
-//  abstract class WithDbData extends WithApplication {
-//    override def around[T: AsResult](t: => T): Result = super.around {
-//      setupData()
-//      t
-//    }
-//
-//    def setupData() {
-//      DBs.setup('testdb);
-//      def openDatabaseTransaction() {
-//        def db = NamedDB('testdb).toDB
-//      }
-//    }
-//  }
-
+trait DatabaseContext extends AroundEach {
+  // you need to define the "around" method
+  def around[R: AsResult](r: => R): Result = {
+    def db = NamedDB('testdb).toDB
+    openDatabaseTransaction
+    try AsResult(r)
+    finally closeDatabaseTransaction
+  }
+  // do what you need to do with the database
+  def openDatabaseTransaction = withMyDatabase { testdb =>
+    val connection = testdb.getConnection()
+    Evolutions.applyEvolutions(testdb)
+  }
+  def closeDatabaseTransaction = withMyDatabase { testdb =>
+    val connection = testdb.shutdown()
+    Evolutions.cleanupEvolutions(testdb)
+  }
   def withMyDatabase[T](block: Database => T) = {
-    Databases.withInMemory(
+    Databases.inMemory(
       name = "testdb",
       urlOptions = Map(
         "MODE" -> "MYSQL"
@@ -47,28 +48,22 @@ class ClientControlSpec extends Specification {
       config = Map(
         "logStatements" -> true
       )
-    ) { testdb =>
-
-      Evolutions.withEvolutions(testdb) {
-        block(testdb)
-      }
-    }
+    )
   }
+}
 
 
+
+class ClientControlSpec extends Specification with DatabaseContext{
 
   "Client Controller" should {
-    "respond to the index Action" in withMyDatabase { testdb=>
-      val connection = testdb.getConnection()
+    "respond to the index Action" in {
         val json = new controllers.clientControl().showAll()(FakeRequest())
         println(Json.parse(contentAsString(json)))
         status(json) must equalTo(OK)
 
         //contentType(result) must beSome("application/xml")
         //contentAsString(result) must contain("products")
-    }
-    "be retrieved by email" in  new WithApplication{
-      // your test code
     }
   }
 
