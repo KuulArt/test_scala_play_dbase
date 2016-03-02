@@ -10,9 +10,9 @@ import scalikejdbc.config._
   *
   * with settings.DBSettings
   */
-class ClientSpec extends Specification {
+class ClientSpec extends Specification with settings.DBSettings{
 
-  DBs.setup('testdb);
+  //DBs.setup('testdb);
 
   val _p = clients.c
 
@@ -28,43 +28,9 @@ class ClientSpec extends Specification {
     }
 
   "Member should create a new record" in new AutoRollbackWithFixture {
-    //      val before = clients.count()
-    //      clients.create("pro-sound" , 20)
-    //"Asdfsdfs" must_==("fff")
-    //println(clients.findAll())
-    //      clients.count() must_==(before + 1)
   }
 
-//    "clients" should {
-//      "find with skills" in new AutoRollbackWithFixture {
-//        val seratch = Programmer.findAllBy(sqls.eq(_p.name, "seratch")).head
-//        seratch.skills.size should_== (3)
-//      }
-//      "find no skill programmers" in new AutoRollbackWithFixture {
-//        val noSkillProgrammers = Programmer.findNoSkillProgrammers()
-//        noSkillProgrammers.size should_== (1)
-//      }
-//      "find by primary keys" in new AutoRollbackWithFixture {
-//        val id = Programmer.findAll().head.id
-//        val maybeFound = Programmer.find(id)
-//        maybeFound.isDefined should beTrue
-//      }
-//      "find all records" in new AutoRollbackWithFixture {
-//        val allResults = Programmer.findAll()
-//        allResults.size should_== (3)
-//      }
-//      "count all records" in new AutoRollbackWithFixture {
-//        val count = Programmer.countAll()
-//        count should_== (3L)
-//      }
-//      "find by where clauses" in new AutoRollbackWithFixture {
-//        val results = Programmer.findAllBy(sqls.isNotNull(_p.companyId))
-//        results.head.name should_== ("seratch")
-//      }
-//      "count by where clauses" in new AutoRollbackWithFixture {
-//        val count = Programmer.countBy(sqls.isNull(_p.companyId))
-//        count should_== (2L)
-//      }
+//
       "create new record" in new AutoRollbackWithFixture {
         val martin = clients.create("Martin", 23)
         martin.ID should not beNull;
@@ -104,15 +70,6 @@ class ClientSpec extends Specification {
         val test_clients = new client(1, "prosound", 20)
         clients.find(1) must_==(Some(test_clients))
       }
-//      "destroy a record" in new AutoRollbackWithFixture {
-//        val entity = Programmer.findAll().head
-//        entity.destroy()
-//        val shouldBeNone = Programmer.find(entity.id)
-//        shouldBeNone.isDefined should beFalse
-//        Programmer.countAll should_== (2L)
-//      }
-//    }
-
 }
 
 /**
