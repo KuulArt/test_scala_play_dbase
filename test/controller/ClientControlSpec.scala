@@ -30,13 +30,7 @@ class ClientControlSpec extends Specification {
     def setupData() {
       DBs.setup('testdb);
       def openDatabaseTransaction() {
-
         def db = NamedDB('testdb).toDB
-        def fixture(implicit session: DBSession) {
-          val user1 = clients.create("user1", 20)
-          val user2 = clients.create("user2", 30)
-          val user3 = clients.create("user3", 25)
-        }
       }
     }
   }
@@ -45,7 +39,7 @@ class ClientControlSpec extends Specification {
   "Client Controller" should {
     "respond to the index Action" in new WithDbData{
       val json = new controllers.clientControl().showAll()(FakeRequest())
-      println(contentAsString(json))
+      println(Json.parse(contentAsString(json)))
       status(json) must equalTo(OK)
 
       //contentType(result) must beSome("application/xml")
