@@ -12,7 +12,7 @@ class ClientSpec extends Specification with settings.DBSettings {
   val _p = clients.c
 
     trait AutoRollbackWithFixture extends AutoRollback {
-//      override def db = NamedDB('testdb).toDB
+      override def db = NamedDB('testdb).toDB
       override def fixture(implicit session: DBSession) {
 
         val user1 = clients.create("user1", 20)
@@ -25,7 +25,8 @@ class ClientSpec extends Specification with settings.DBSettings {
   "Member should create a new record" in new AutoRollbackWithFixture {
     //      val before = clients.count()
     //      clients.create("pro-sound" , 20)
-    "Asdfsdfs" must_==("fff")
+    //"Asdfsdfs" must_==("fff")
+    println(clients.findAll())
     //      clients.count() must_==(before + 1)
   }
 
