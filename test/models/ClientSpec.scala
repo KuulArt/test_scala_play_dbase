@@ -5,6 +5,7 @@ import org.specs2.mutable._
 import org.joda.time._
 import scalikejdbc._
 import scalikejdbc.config._
+import play.api.Play.current
 /**
   * Created by kuulart on 16.2.3.
   *
