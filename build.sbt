@@ -10,6 +10,7 @@ libraryDependencies ++= Seq(
   jdbc,
   cache,
   ws,
+  evolutions,
   "org.scalikejdbc" %% "scalikejdbc"       % "2.3.5",
   "com.h2database"  %  "h2"                % "1.4.191",
   "org.scalikejdbc" %% "scalikejdbc-config"           % "2.3.5",

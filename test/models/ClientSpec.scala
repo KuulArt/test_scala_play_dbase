@@ -4,10 +4,15 @@ import scalikejdbc.specs2.mutable.AutoRollback
 import org.specs2.mutable._
 import org.joda.time._
 import scalikejdbc._
+import scalikejdbc.config._
 /**
   * Created by kuulart on 16.2.3.
+  *
+  * with settings.DBSettings
   */
-class ClientSpec extends Specification with settings.DBSettings {
+class ClientSpec extends Specification {
+
+  DBs.setup('testdb);
 
   val _p = clients.c
 
