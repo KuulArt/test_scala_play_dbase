@@ -22,16 +22,18 @@ import play.api.db.evolutions._
 /**
   * Created by kuulart on 16.2.3.
   */
-trait DatabaseContext extends AroundEach {
+trait DatabaseContext extends AroundEach with settings.DBSettings{
   // you need to define the "around" method
   def around[R: AsResult](r: => R): Result = {
-    def db = NamedDB('testdb).toDB
+    //def db = NamedDB('testdb).toDB
     openDatabaseTransaction
     try AsResult(r)
     finally closeDatabaseTransaction
   }
   // do what you need to do with the database
   def openDatabaseTransaction = withMyDatabase { testdb =>
+    //NamedDB('testdb)
+    settings.DBSettings.initialize()
     val connection = testdb.getConnection()
     Evolutions.applyEvolutions(testdb)
   }
@@ -54,7 +56,9 @@ trait DatabaseContext extends AroundEach {
 
 
 
-class ClientControlSpec extends Specification with DatabaseContext{
+class ClientControlSpec extends Specification with DatabaseContext with settings.DBSettings{
+
+
 
   "Client Controller" should {
     "respond to the index Action" in {
