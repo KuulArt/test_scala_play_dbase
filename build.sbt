@@ -14,6 +14,7 @@ libraryDependencies ++= Seq(
   "com.h2database"  %  "h2"                % "1.4.191",
   "org.scalikejdbc" %% "scalikejdbc-config"           % "2.3.5",
   "org.scalikejdbc" %% "scalikejdbc-play-initializer" % "2.4.3",
+  "org.scalikejdbc" %% "scalikejdbc-test"   % "2.3.5"   % "test",
   "ch.qos.logback"  %  "logback-classic"   % "1.1.3",
   "mysql" % "mysql-connector-java" % "5.1.18",
 
