@@ -56,9 +56,18 @@ import play.api.db.evolutions._
 
 
 
-class ClientControlSpec extends Specification with settings.DBSettings {
+class ClientControlSpec extends PlaySpecification with settings.DBSettings {
+  NamedDB('testdb)
+  def inSpecMemoryDatabase(name: String = "testdb", options: Map[String, String] = Map.empty[String, String]): Map[String, String] = {
+    val optionsForDbUrl = options.map { case (k, v) => k + "=" + v }.mkString(";", ";", "")
+    NamedDB('testdb)
+    Map(
+      ("db." + name + ".driver") -> "org.h2.Driver",
+      ("db." + name + ".url") -> ("jdbc:h2:mem:play-test-" + scala.util.Random.nextInt + optionsForDbUrl)
+    )
+  }
 
-  val appWithMemoryDatabase = FakeApplication(additionalConfiguration = inMemoryDatabase("test"))
+  val appWithMemoryDatabase = FakeApplication(additionalConfiguration = inSpecMemoryDatabase())
 
 
   "Client Controller" should {
