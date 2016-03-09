@@ -7,16 +7,14 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 scalaVersion := "2.11.6"
 
 libraryDependencies ++= Seq(
-  jdbc,
+
   cache,
   ws,
   evolutions,
-  "org.scalikejdbc" %% "scalikejdbc"       % "2.3.5",
   "com.h2database"  %  "h2"                % "1.4.191",
-  "org.scalikejdbc" %% "scalikejdbc-config"           % "2.3.5",
-  "org.scalikejdbc" %% "scalikejdbc-play-initializer" % "2.4.3",
-
-  "org.scalikejdbc" %% "scalikejdbc-test"   % "2.3.5"   % "test",
+  "com.typesafe.play" %% "play-slick" % "1.1.1",
+  "com.typesafe.play" %% "play-slick" % "1.1.1",
+  "com.typesafe.play" %% "play-slick-evolutions" % "1.1.1",
   "ch.qos.logback"  %  "logback-classic"   % "1.1.3",
   "mysql" % "mysql-connector-java" % "5.1.18",
 
