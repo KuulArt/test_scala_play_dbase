@@ -9,7 +9,6 @@ CREATE TABLE clients(
     PRIMARY KEY ( ID )
 );
 
-INSERT INTO clients values (null, 'prosound', 20);
 
 # --- !Downs
 

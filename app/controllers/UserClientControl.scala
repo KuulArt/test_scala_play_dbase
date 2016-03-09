@@ -8,6 +8,8 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import play.api.mvc._
 import play.api.libs.json._
 import services.UserService
+import play.api.Play.current
+import play.api.i18n.Messages.Implicits._
 
 /**
   * Created by kuulart on 16.9.3.
@@ -29,7 +31,7 @@ class UserClientControl extends Controller {
 
   def addUser() = Action.async { implicit request =>
     UserForm.form.bindFromRequest.fold(
-      formWithErrors => Future.successful(Ok("Fail")),
+      formWithErrors => Future.successful(BadRequest(Json.obj("errors" -> formWithErrors.errorsAsJson))),
       formData => {
         val newUser = UserClient(0, formData.name, formData.discount)
         UserService.addUser(newUser).map(res =>

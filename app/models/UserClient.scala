@@ -21,12 +21,12 @@ object UserForm {
   val form = Form(
     mapping(
       "name" -> nonEmptyText,
-      "disocunt" -> number.verifying(min(0), max(100))
+      "discount" -> number.verifying(min(0), max(100))
     )(UserFormData.apply)(UserFormData.unapply)
   )
 }
 
-class UserTableDef(tag: Tag) extends Table[UserClient](tag, "user") {
+class UserTableDef(tag: Tag) extends Table[UserClient](tag, "clients") {
 
   def id = column[Int]("id", O.PrimaryKey,O.AutoInc)
   def name = column[String]("name")
