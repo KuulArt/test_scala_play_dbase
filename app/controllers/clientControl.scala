@@ -3,6 +3,8 @@ package controllers
 
 //import com.github.tototoshi.play2.json4s.native._
 import models._
+import scalikejdbc.{NamedAutoSession, AutoSession}
+
 //import org.json4s._
 //import org.json4s.ext.JodaTimeSerializers
 import play.api.data.Forms._
@@ -15,6 +17,8 @@ import play.api.libs.json._
   * Created by kuulart on 16.24.2.
   */
 class clientControl extends Controller{
+
+  implicit var session = AutoSession
 
   /**
     *
@@ -57,6 +61,7 @@ class clientControl extends Controller{
     */
   def showAll = Action {
     val clientsList = clients.findAll()
+    println("clientsList:", clientsList)
     Ok(Json.toJson(clientsList))
   }
 

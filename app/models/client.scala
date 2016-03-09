@@ -65,7 +65,8 @@ object clients extends SQLSyntaxSupport[client] {
     * @param session
     * @return
     */
-  def findAll()(implicit session: DBSession = autoSession): List[client] = withSQL {
+  def findAll()(implicit session: DBSession): List[client] = withSQL {
+    println("findAll session:", session)
     select.from(clients as c)
       .orderBy(c.ID)
   }.map(clients(c)).list.apply()
@@ -78,10 +79,11 @@ object clients extends SQLSyntaxSupport[client] {
     * @return
     */
   def create(name: String, discount: Int)(implicit session:DBSession = AutoSession): client = {
+    val m = clients.column
     val id = withSQL {
       insert.into(clients).namedValues(
-        column.name -> name,
-        column.discount -> discount
+        m.name -> name,
+        m.discount -> discount
       )
     }.updateAndReturnGeneratedKey.apply()
 
