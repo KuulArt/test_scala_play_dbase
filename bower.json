@@ -1,0 +1,19 @@
+{
+  "name": "play-scala",
+  "homepage": "https://github.com/KuulArt/test_scala_play_dbase",
+  "authors": [
+    "Toms <toms.lisments@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "gnu",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
