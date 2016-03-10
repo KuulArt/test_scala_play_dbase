@@ -7,20 +7,21 @@
 
 <h1>Hello</h1><br>
 
-    <form action="/add" method="post">
-        Client name: <input type="text" name="name"/><br><br>
-        Enter discount: <input type="int" name="discount"/><br><br>
-        <input type="submit" value="Submit"/>
-    </form>
-    <br>
-    <br>
-    <button class="poga">Get Database!</button>
+    @*<form action="/add" method="post">*@
+        @*Client name: <input type="text" name="name"/><br><br>*@
+        @*Enter discount: <input type="int" name="discount"/><br><br>*@
+        @*<input type="submit" value="Submit"/>*@
+    @*</form>*@
+    @*<br>*@
+    @*<br>*@
+    @*<button class="poga">Get Database!</button>*@
 
-    <div class="dati"></div>
+    @*<div class="dati"></div>*@
+    <div id="clientapp"></div>
 
 
-    <script src="/assets/javascripts/jquery.min.js"></script>
-    <script src="/assets/javascripts/main.js"></script>
+    <script src="/assets/lib/requirejs/require.js" data-main="/assets/javascripts/app.js"></script>
+
 
 
 

@@ -1,6 +1,9 @@
 package models
 
-import org.h2.engine.Database
+import akka.actor.Scope
+import org.h2.engine.{Session, Database}
+import org.specs2.execute
+import org.specs2.execute.AsResult
 import play.api.db.slick._
 import play.api.Play
 import play.api.test._
@@ -11,6 +14,10 @@ import org.specs2.runner._
 import org.junit.runner._
 import slick.driver.JdbcProfile
 import services._
+
+import scala.concurrent.Future
+import slick.driver.JdbcProfile
+import slick.driver.MySQLDriver.api._
 import models._
 import scala.concurrent.duration.Duration
 
@@ -23,25 +30,41 @@ import scala.util.{Failure, Success}
   */
 class UserClientSpecs extends Specification{
 
-  val appWithMemoryDatabase = FakeApplication(additionalConfiguration = inMemoryDatabase("testdb"))
+  //val appWithMemoryDatabase = FakeApplication(additionalConfiguration = inMemoryDatabase("testdb"))
 
   //val dbConfig = DatabaseConfigProvider.get[JdbcProfile]("testdb")(Play.current)
+  abstract class WithDbData extends WithApplication {
+    override def around[T: AsResult](t: => T): execute.Result = super.around {
+      setupData()
+      t
+    }
 
-  step("start application")
+    def setupData() {
+      val dbEntries = UsersClient.users
+      val action = dbEntries.delete
+    }
+  }
+  sequential
+
+  step("Start Application")
 
   "App should " should {
-    "add value to database" in new WithApplication(appWithMemoryDatabase) {
+    "add value to database" in new WithApplication {
       println("before first test")
-      val recordEntry = new UserClient(None, "Lohs", 2)
+      val recordEntry = new UserClient(None, "Lohs_atkal", 2)
       val newRecord = UserService.addUser(recordEntry)
       newRecord.onComplete {
         case Success(value) => println(s"Got the callback, meaning = $value")
         case Failure(e) => println(e.getMessage)
       }
       newRecord should not beNull
+      val count = UserService.listAllUsers.map {
+        v =>
+          println("the number of database entries are " + v.length)
+      }
     }
 
-    "delete a record" in new WithApplication(appWithMemoryDatabase){
+    "delete a record" in new WithApplication {
       println("before second test")
       val recordEntry = new UserClient(Some(0), "Lielaks Lohs", 5)
       val newRecord = UserService.addUser(recordEntry)
