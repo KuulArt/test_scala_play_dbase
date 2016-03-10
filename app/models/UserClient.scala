@@ -12,23 +12,24 @@ import scala.concurrent.ExecutionContext.Implicits.global
 /**
   * Created by kuulart on 16.9.3.
   */
-case class UserClient(id: Int, name: String, discount: Int)
+case class UserClient(id: Option[Int], name: String, discount: Int)
 
-case class UserFormData(name: String, discount: Int)
+//case class UserFormData(name: String, discount: Int)
 
 object UserForm {
 
   val form = Form(
     mapping(
+      "id" -> ignored[Option[Int]](None),
       "name" -> nonEmptyText,
       "discount" -> number.verifying(min(0), max(100))
-    )(UserFormData.apply)(UserFormData.unapply)
+    )(UserClient.apply)(UserClient.unapply)
   )
 }
 
 class UserTableDef(tag: Tag) extends Table[UserClient](tag, "clients") {
 
-  def id = column[Int]("id", O.PrimaryKey,O.AutoInc)
+  def id = column[Option[Int]]("id", O.PrimaryKey,O.AutoInc)
   def name = column[String]("name")
   def discount = column[Int]("discount")
 
@@ -43,10 +44,9 @@ object UsersClient {
   var users = TableQuery[UserTableDef]
 
   def add(user: UserClient): Future[Option[UserClient]] = {
-    dbConfig.db.run(users += user).map(res => Some(user)).recover {
-      case ex: Exception =>
-        println(ex.getMessage)
-        None
+    val t = dbConfig.db.run(users += user)
+    t.map {
+      v => Some(user)
     }
   }
 

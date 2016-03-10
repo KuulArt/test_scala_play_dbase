@@ -33,7 +33,7 @@ class UserClientControl extends Controller {
     UserForm.form.bindFromRequest.fold(
       formWithErrors => Future.successful(BadRequest(Json.obj("errors" -> formWithErrors.errorsAsJson))),
       formData => {
-        val newUser = UserClient(0, formData.name, formData.discount)
+        val newUser = UserClient(formData.id, formData.name, formData.discount)
         UserService.addUser(newUser).map(res =>
           Redirect(routes.Application.index())
         )

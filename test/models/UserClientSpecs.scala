@@ -30,22 +30,40 @@ class UserClientSpecs extends Specification{
   step("start application")
 
   "App should " should {
-    "add value to database" in new WithApplication(appWithMemoryDatabase){
+    "add value to database" in new WithApplication(appWithMemoryDatabase) {
+      println("before first test")
+      val recordEntry = new UserClient(None, "Lohs", 2)
+      val newRecord = UserService.addUser(recordEntry)
+      newRecord.onComplete {
+        case Success(value) => println(s"Got the callback, meaning = $value")
+        case Failure(e) => println(e.getMessage)
+      }
+      newRecord should not beNull
+    }
 
-        val recordEntry = new UserClient(0, "Lohs", 2)
-        val newRecord = UserService.addUser(recordEntry)
-        println("before")
-          newRecord.onComplete {
-            case Success(value) => println(s"Got the callback, meaning = $value")
-            case Failure(e) => println(e.getMessage)
-          }
-        newRecord should not beNull
-
-      //        val result = Await.result(newRecord, new Duration(1))
-
-//          map {  newRec =>
-//          println(newRec)
-//        }
+    "delete a record" in new WithApplication(appWithMemoryDatabase){
+      println("before second test")
+      val recordEntry = new UserClient(Some(0), "Lielaks Lohs", 5)
+      val newRecord = UserService.addUser(recordEntry)
+      newRecord.map {
+        v => println("newRecord value", v)
+      }
+      newRecord.onComplete {
+        case Success(value) => println(s"Got the callback, meaning = $value")
+        case Failure(e) => println(e.getMessage)
+      }
+      val recordEntry2 = new UserClient(Some(1), "Lielaks Lohs2", 50)
+      val newRecord2 = UserService.addUser(recordEntry2)
+      val countOne = UserService.listAllUsers.map {
+        res =>
+          println(res.length)
+      }
+      val deleteUser = UserService.deleteUser(1)
+      val countTwo = UserService.listAllUsers.map {
+        res =>
+          res should_==(1)
+          res should !==(2)
+      }
     }
 
 
