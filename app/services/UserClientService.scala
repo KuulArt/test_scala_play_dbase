@@ -7,7 +7,7 @@ import scala.concurrent.Future
 
 object UserService {
 
-  def addUser(user: UserClient): Future[String] = {
+  def addUser(user: UserClient): Future[Option[UserClient]] = {
     UsersClient.add(user)
   }
 

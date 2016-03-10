@@ -42,9 +42,11 @@ object UsersClient {
 
   var users = TableQuery[UserTableDef]
 
-  def add(user: UserClient): Future[String] = {
-    dbConfig.db.run(users += user).map(res => "User successfully added").recover {
-      case ex: Exception => ex.getCause.getMessage
+  def add(user: UserClient): Future[Option[UserClient]] = {
+    dbConfig.db.run(users += user).map(res => Some(user)).recover {
+      case ex: Exception =>
+        println(ex.getMessage)
+        None
     }
   }
 
