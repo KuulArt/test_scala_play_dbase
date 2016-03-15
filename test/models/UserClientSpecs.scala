@@ -46,9 +46,10 @@ class UserClientSpecs extends Specification{
   }
   sequential
 
-  step("Start Application")
+
 
   "App should " should {
+    step("Add Record")
     "add value to database" in new WithApplication {
       println("before first test")
       val recordEntry = new UserClient(None, "Lohs_atkal", 2)
@@ -63,6 +64,8 @@ class UserClientSpecs extends Specification{
           println("the number of database entries are " + v.length)
       }
     }
+
+    step("Delete record")
 
     "delete a record" in new WithApplication {
       println("before second test")

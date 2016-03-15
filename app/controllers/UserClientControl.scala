@@ -25,6 +25,7 @@ class UserClientControl extends Controller {
 //  }
   implicit val clientWrites = new Writes[UserClient] {
     def writes(client: UserClient) = Json.obj(
+      "id"  -> client.id,
       "name" -> client.name,
       "discount" -> client.discount)
   }
@@ -35,7 +36,8 @@ class UserClientControl extends Controller {
       formData => {
         val newUser = UserClient(formData.id, formData.name, formData.discount)
         UserService.addUser(newUser).map(res =>
-          Redirect(routes.Application.index())
+//          Redirect(routes.Application.index())
+          Ok(Json.toJson(newUser))
         )
       }
     )

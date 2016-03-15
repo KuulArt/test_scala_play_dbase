@@ -1,7 +1,6 @@
 /**
- * Created by kuulart on 16.10.3.
+ * Created by kuulart on 16.15.3.
  */
-
 /*global define*/
 define([
     'underscore',
@@ -9,9 +8,9 @@ define([
 ], function (_, Backbone) {
     'use strict';
 
-    var AddModel = Backbone.Model.extend({
-
+    var Client = Backbone.Model.extend({
+        urlRoot : '/client'
     });
 
-    return AddModel;
+    return Client;
 });

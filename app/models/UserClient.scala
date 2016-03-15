@@ -44,7 +44,7 @@ object UsersClient {
   var users = TableQuery[UserTableDef]
 
   def add(user: UserClient): Future[Option[UserClient]] = {
-    val t = dbConfig.db.run(users += user)
+    val t = dbConfig.db.run((users returning users.map(_.id)) += user)
     t.map {
       v => Some(user)
     }
