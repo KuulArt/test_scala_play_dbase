@@ -13,8 +13,9 @@ define([
     'serialize',
     'models/client',
     'collections/clients',
-    'views/client'
-], function ($, _, Backbone, template, serialize, Client, Clients, ClientView) {
+    'views/client',
+    'helpers/eventBus'
+], function ($, _, Backbone, template, serialize, Client, Clients, ClientView, eventBus) {
     'use strict';
 
     // Our overall **AppView** is the top-level piece of UI.
@@ -24,29 +25,28 @@ define([
 
         // Instead of generating a new element, bind to the existing skeleton of
         // the App already present in the HTML.
-        el: '#clientapp',
+        //el: '.home',
 
         // Compile our stats template
         template: _.template(template),
 
         // Delegated events for creating new items, and clearing completed ones.
         events: {
-            'submit .submitAdd':		'add',
+            'submit .submitAdd':		'add'
         },
 
         // At initialization we bind to the relevant events on the `Todos`
         // collection, when items are added or changed. Kick things off by
         // loading any preexisting todos that might be saved in *localStorage*.
-        initialize: function () {
+        initialize: function (options) {
             this.clients = new Clients();
-            this.listenTo(this.clients, "add", this.renderClient);
+            this.eventBus = options.eventBus;
+            this.listenTo(this.clients, "add", this.renderTrigger);
         },
 
-        renderClient: function (model) {
+        renderTrigger: function (model) {
           // ...
-            var view = new ClientView({model: model});
-            view.render();
-            this.$("ul").append(view.el);
+            this.eventBus.trigger('entry:add', model);
         },
 
 
@@ -78,7 +78,7 @@ define([
         render: function () {
             this.$el.html(this.template());
             this.clients.fetch();
-
+            return this;
         }
     });
 

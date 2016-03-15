@@ -73,8 +73,6 @@ class UserClientSpecs extends Specification {
 
 
     }
-
-
     //    "delete a record" in new WithApplication {
     ////      println("before second test")
     ////      val recordEntry = new UserClient(Some(0), "Lielaks Lohs", 5)
@@ -99,7 +97,5 @@ class UserClientSpecs extends Specification {
     ////          res should !==(2)
     ////      }
     //    }
-
-
   }
 }
