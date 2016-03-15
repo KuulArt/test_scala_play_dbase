@@ -48,19 +48,29 @@ class UserClientSpecs extends Specification {
       val user = new UserClient(None, "Lohs", 2)
       val addUser = usersDAO.addUser(user)
       Await.result(addUser, Duration.Inf)
+
       val user2 = new UserClient(None, "Lohs2", 4)
       val addUser2 = usersDAO.addUser(user2)
       Await.result(addUser2, Duration.Inf)
 
-      val modifyUser = usersDAO.updateUser(2, new UserClient(None, "NavLohs", 10))
+      val user2future = usersDAO.getUser(2)
+      val user2obj = Await.result(user2future, Duration.Inf).get
+
+      val user2modified = user2obj.copy(name = "Lohs112")
+      println("user2modified:", user2modified)
+
+      val modifyUser = usersDAO.updateUser(user2modified.id.get, user2modified)
       val response = Await.result(modifyUser, Duration.Inf)
-      val future2 = usersDAO.getUser(1)
-      val editedList = Await.result(future2, Duration.Inf)
-//      editedList.name mustEqual "NavLohs"
-      println("second", editedList.get)
+
+      val future2 = usersDAO.getUser(2)
+      val editedList = Await.result(future2, Duration.Inf).get
+      editedList.name mustEqual "Lohs112"
+
+      println("second", editedList)
       val future = usersDAO.listAllUsers
       val users = Await.result(future, Duration.Inf)
       println("users", users.toList)
+
 
     }
 
