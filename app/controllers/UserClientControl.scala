@@ -1,7 +1,9 @@
 package controllers
+
 import models.{UserClient, UsersClient, UserForm}
 import play.api.data._
 import play.api.data.validation.Constraints._
+import play.api.db.slick.DatabaseConfigProvider
 import scala.concurrent.Future
 import services.UserService
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -10,19 +12,20 @@ import play.api.libs.json._
 import services.UserService
 import play.api.Play.current
 import play.api.i18n.Messages.Implicits._
+import javax.inject.Inject
 
 /**
   * Created by kuulart on 16.9.3.
   */
 
 
-class UserClientControl extends Controller {
+class UserClientControl @Inject()(UserService: UserService, dbConfigProvider: DatabaseConfigProvider) extends Controller {
 
-//  def index: Action[AnyContent] = Action.async { implicit request =>
-//    UserService.listAllUsers map { users =>
-//      Ok(views.html.index(UserForm.form, users))
-//    }
-//  }
+  //  def index: Action[AnyContent] = Action.async { implicit request =>
+  //    UserService.listAllUsers map { users =>
+  //      Ok(views.html.index(UserForm.form, users))
+  //    }
+  //  }
   implicit val clientWrites = new Writes[UserClient] {
     def writes(client: UserClient) = Json.obj(
       "id"  -> client.id,
@@ -44,11 +47,11 @@ class UserClientControl extends Controller {
   }
 
   def listClients() = Action.async { implicit request =>
-    UserService.listAllUsers map {res =>
+    UserService.listAllUsers map { res =>
       println("clientsList:", res)
       Ok(Json.toJson(res))
     }
-    }
+  }
 
   def deleteUser(id: Int) = Action.async { implicit request =>
     UserService.deleteUser(id) map { res =>

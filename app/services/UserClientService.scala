@@ -1,29 +1,33 @@
 package services
+
+import javax.inject.Inject
+
 import models._
 import controllers._
 
 import models.{UserClient, UsersClient}
+import play.api.db.slick.DatabaseConfigProvider
 import scala.concurrent.Future
 
-object UserService {
+class UserService @Inject()(uc: UsersClient, protected val dbConfigProvider: DatabaseConfigProvider) {
 
-  def addUser(user: UserClient): Future[Option[UserClient]] = {
-    UsersClient.add(user)
+  def addUser(user: UserClient) = {
+    uc.add(user)
   }
 
   def deleteUser(id: Int): Future[Int] = {
-    UsersClient.delete(id)
+    uc.delete(id)
   }
 
   def getUser(id: Int): Future[Option[UserClient]] = {
-    UsersClient.get(id)
+    uc.get(id)
   }
 
   def listAllUsers: Future[Seq[UserClient]] = {
-    UsersClient.listAll
+    uc.listAll
   }
 
-  def updateUser(id: Int): Future[Int] = {
-    UsersClient.update(id)
-  }
+//  def updateUser(id: Int): Future[Int] = {
+//    UsersClient.update(id)
+//  }
 }
