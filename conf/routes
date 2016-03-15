@@ -12,3 +12,4 @@ GET     /clients                   controllers.UserClientControl.listClients
 #GET    /                          controllers.UserClientControl.index
 POST    /client                    controllers.UserClientControl.addUser
 DELETE  /client/:id                controllers.UserClientControl.deleteUser(id : Int)
+PUT     /client/:id                controllers.UserClientControl.update(id: Int)

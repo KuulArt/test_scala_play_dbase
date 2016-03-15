@@ -27,7 +27,7 @@ class UserService @Inject()(uc: UsersClient, protected val dbConfigProvider: Dat
     uc.listAll
   }
 
-//  def updateUser(id: Int): Future[Int] = {
-//    UsersClient.update(id)
-//  }
+  def updateUser(id: Int, user: UserClient): Future[Int] = {
+    uc.update(id, user)
+  }
 }

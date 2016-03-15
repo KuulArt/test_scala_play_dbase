@@ -70,8 +70,9 @@ class UsersClient @Inject()(dbConfigProvider: DatabaseConfigProvider) {
     dbConfig.db.run(users.result)
   }
 
-//  def update(id: Int): Future[UserClient] = {
-//    dbConfig.db.run(users.filter(_.id === id).update)
-//  }
+  def update(id: Int, client: UserClient): Future[Int] = {
+    dbConfig.db.run(users.filter(_.id === id).update(client))
+//    dbConfig.db.run(users.filter(_.id === id).map(_.discount).update(client.discount))
+  }
 
 }

@@ -22,6 +22,7 @@ class UserClientSpecs extends Specification {
   "App should " should {
 
     "add value to database" in new WithApplication {
+
       val recordEntry = new UserClient(None, "Lohs", 2)
       val newRecord = usersDAO.addUser(recordEntry)
       val t = Await.result(newRecord, Duration.Inf)
@@ -40,6 +41,26 @@ class UserClientSpecs extends Specification {
       users.length mustEqual 1
 
       // println("users", users.toList)
+
+    }
+
+    "Modify user" in new WithApplication {
+      val user = new UserClient(None, "Lohs", 2)
+      val addUser = usersDAO.addUser(user)
+      Await.result(addUser, Duration.Inf)
+      val user2 = new UserClient(None, "Lohs2", 4)
+      val addUser2 = usersDAO.addUser(user2)
+      Await.result(addUser2, Duration.Inf)
+
+      val modifyUser = usersDAO.updateUser(2, new UserClient(None, "NavLohs", 10))
+      val response = Await.result(modifyUser, Duration.Inf)
+      val future2 = usersDAO.getUser(1)
+      val editedList = Await.result(future2, Duration.Inf)
+//      editedList.name mustEqual "NavLohs"
+      println("second", editedList.get)
+      val future = usersDAO.listAllUsers
+      val users = Await.result(future, Duration.Inf)
+      println("users", users.toList)
 
     }
 

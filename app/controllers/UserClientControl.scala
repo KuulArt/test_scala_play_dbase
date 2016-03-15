@@ -59,4 +59,16 @@ class UserClientControl @Inject()(UserService: UserService, dbConfigProvider: Da
     }
   }
 
+  def update(id: Int) = Action.async {implicit request =>
+    UserForm.form.bindFromRequest.fold(
+      formWithErrors => Future.successful(BadRequest(Json.obj("errors" -> formWithErrors.errorsAsJson))),
+      formData => {
+        val newUser = UserClient(formData.id, formData.name, formData.discount)
+        UserService.updateUser(id, newUser).map(res =>
+          //          Redirect(routes.Application.index())
+          Ok(Json.toJson(newUser))
+        )
+      }
+    )
+  }
 }
