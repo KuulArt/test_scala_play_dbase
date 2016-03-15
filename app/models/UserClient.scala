@@ -62,4 +62,8 @@ object UsersClient {
     dbConfig.db.run(users.result)
   }
 
+  def update(id: Int): Future[UserClient] = {
+    dbConfig.db.run(users.filter(_.id === id).update)
+  }
+
 }

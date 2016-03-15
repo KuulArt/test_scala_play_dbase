@@ -22,4 +22,8 @@ object UserService {
   def listAllUsers: Future[Seq[UserClient]] = {
     UsersClient.listAll
   }
+
+  def updateUser(id: Int): Future[Int] = {
+    UsersClient.update(id)
+  }
 }
