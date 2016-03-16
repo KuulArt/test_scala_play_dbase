@@ -26,8 +26,8 @@ define([
 
         // Delegated events for creating new items, and clearing completed ones.
         events: {
-            'click .delete':		'deleteRec'
-            //'click .edit':          'editRec'
+            'click .delete':		'deleteRec',
+            'click .edit':          'editRec'
         },
 
         // At initialization we bind to the relevant events on the `Todos`
@@ -37,7 +37,10 @@ define([
             if (opts.model) {
                 this.model = opts.model;
             }
-            this.client = opts.client;
+            if (opts.collection) {
+                this.collection = opts.collection;
+            }
+            //this.client = opts.client;
             this.listenTo(this.model, 'change', this.render);
             _.bindAll(this, "deleteRec");
             _.bindAll(this, "render");
@@ -48,15 +51,17 @@ define([
             this.remove();
         },
 
-        //editRec: function () {
-        //    var view = new EditView(this.model.toJSON());
-        //    view.render().showModal();
-        //},
+        editRec: function () {
+            var view = new EditView({model: this.model, collection: this.collection});
+            view.render().showModal();
+
+        },
         // Re-rendering the App just means refreshing the statistics -- the rest
         // of the app doesn't change.
         //{client: this.model}
         render: function () {
-            this.$el.html(this.template({client: this.model.toJSON}));
+            //console.log("ClientView.render", {client: this.model.toJSON()})
+            this.$el.html(this.template({client: this.model.toJSON()}));
             return this;
         }
     });

@@ -33,8 +33,8 @@ define([
             'submit .submitAdd':		'add'
         },
 
-        initialize: function (clients) {
-            this.clients = clients.client;
+        initialize: function (opts) {
+            this.clients = opts.collection;
             //this.listenTo(this.clients, "add", this.renderTrigger);
             _.bindAll(this, "add");
         },
@@ -51,7 +51,6 @@ define([
             //addData.save(data);
 
             var clients = this.clients;
-
             var client = new Client();
             client.save(data, {
                 success: function (model) {

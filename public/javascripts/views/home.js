@@ -43,7 +43,7 @@ define([
             this.clients = new Clients();
             //this.listenTo(Backbone, 'client:add', this.clientView);
             this.listenTo(this.clients, "add", this.clientView);
-            this.listenTo(this.clients, 'change', this.clientView)
+            //this.listenTo(this.clients, 'change', this.clientView)
             _.bindAll(this, "addView");
             _.bindAll(this, "clientView");
             this.render();
@@ -56,7 +56,8 @@ define([
         },
 
         clientView: function (model) {
-            var view = new ClientView({model: model});
+            //console.log("clientView", model);
+            var view = new ClientView({model: model, collection: this.clients});
             view.render();
             this.$(".home").append(view.el);
         },

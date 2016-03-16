@@ -13,27 +13,44 @@ define([
 ], function ($, _, Backbone, template, serialize, Client, Clients, ModalView) {
     'use strict';
 
-    //var EditView = ModalView.extend({
-    //    template: _.template(template),
-    //    events: {
-    //        "submit form": "update"
-    //    },
-    //    render: function () {
-    //        $(this.el).html( this.template());
-    //
-    //        return this;
-    //    },
-    //    initialize: function () {
-    //        _.bindAll(this, "render");
-    //
-    //    },
-    //    update: function (e) {
-    //        e.preventDefault();
-    //        var data = $(e.target).serializeObject();
-    //
-    //        console.log("test")
-    //    }
-    //
-    //});
-    //return EditView;
+    var EditView = Backbone.ModalView.extend({
+        template: _.template(template),
+        events: {
+            "submit form": "update"
+        },
+        render: function () {
+            $(this.el).html( this.template());
+
+            return this;
+        },
+        initialize: function (opts) {
+            if (opts){
+                this.model = opts.model;
+                this.collection = opts.collection;
+            }
+            _.bindAll(this, "render");
+
+        },
+        update: function (e) {
+            e.preventDefault();
+            var data = $(e.target).serializeObject();
+            console.log(data);
+            var clients = this.collection;
+            var client = this.model;
+
+            client.save(data, {
+                success: function (model) {
+                    console.log("Update successful:", arguments);
+                    clients.update(model);
+                },
+                error: function () {
+                    console.log("Update error:", arguments)
+                }
+
+            //console.log("test")
+        });
+        },
+
+    });
+    return EditView;
 });
