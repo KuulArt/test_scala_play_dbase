@@ -34,8 +34,9 @@ define([
         },
 
         initialize: function (clients) {
-            this.clients = clients;
+            this.clients = clients.client;
             //this.listenTo(this.clients, "add", this.renderTrigger);
+            _.bindAll(this, "add");
         },
 
         //renderTrigger: function (model) {

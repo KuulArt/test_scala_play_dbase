@@ -37,8 +37,10 @@ define([
             if (opts.model) {
                 this.model = opts.model;
             }
+            this.client = opts.client;
             this.listenTo(this.model, 'change', this.render);
             _.bindAll(this, "deleteRec");
+            _.bindAll(this, "render");
         },
 
         deleteRec: function (){
