@@ -21,11 +21,9 @@ define([
     // Our overall **AppView** is the top-level piece of UI.
     var AddView = Backbone.View.extend({
 
-        clients: null,
-
         // Instead of generating a new element, bind to the existing skeleton of
         // the App already present in the HTML.
-        //el: '.home',
+        // el: '.home',
 
         // Compile our stats template
         template: _.template(template),
@@ -35,21 +33,15 @@ define([
             'submit .submitAdd':		'add'
         },
 
-        // At initialization we bind to the relevant events on the `Todos`
-        // collection, when items are added or changed. Kick things off by
-        // loading any preexisting todos that might be saved in *localStorage*.
-        initialize: function (options) {
-            this.clients = new Clients();
-            this.eventBus = options.eventBus;
-            this.listenTo(this.clients, "add", this.renderTrigger);
+        initialize: function (clients) {
+            this.clients = clients;
+            //this.listenTo(this.clients, "add", this.renderTrigger);
         },
 
-        renderTrigger: function (model) {
-          // ...
-            this.eventBus.trigger('entry:add', model);
-        },
-
-
+        //renderTrigger: function (model) {
+        //  // ...
+        //    Backbone.trigger('client:add', {model: model});
+        //},
 
         add: function (e) {
             e.preventDefault();
@@ -62,7 +54,7 @@ define([
             var client = new Client();
             client.save(data, {
                 success: function (model) {
-                    console.log("success:", arguments)
+                    console.log("success:", arguments);
                     clients.add(model);
                 },
                 error: function () {
@@ -77,7 +69,7 @@ define([
         // of the app doesn't change.
         render: function () {
             this.$el.html(this.template());
-            this.clients.fetch();
+            //this.clients.fetch();
             return this;
         }
     });

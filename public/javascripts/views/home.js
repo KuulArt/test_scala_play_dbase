@@ -27,6 +27,8 @@ define([
         // the App already present in the HTML.
         el: '#clientapp',
 
+        clients: null,
+
         // Compile our stats template
         template: _.template(template),
 
@@ -37,23 +39,21 @@ define([
         // loading any preexisting todos that might be saved in *localStorage*.
 
         initialize: function () {
+
+            this.clients = new Clients();
+            //this.listenTo(Backbone, 'client:add', this.clientView);
+            this.listenTo(this.clients, 'add', this.clientView);
             this.render();
-            this.eventBus = _.extend({}, Backbone.Events);
-            //this.eventBus.listenTo(this.eventBus, 'entry:add', this.clientView);
         },
-        
+
         addView: function () {
-            var view = new AddView({
-                eventBus : this.eventBus
-            });
+            var view = new AddView(this.clients);
             view.render();
             this.$(".home").append(view.el);
         },
 
-        clientView: function (){
-            var view = new ClientView({
-                eventBus : this.eventBus
-            });
+        clientView: function (model) {
+            var view = new ClientView(model);
             view.render();
             this.$(".home").append(view.el);
         },
@@ -63,10 +63,9 @@ define([
         render: function () {
             this.$el.html(this.template());
             this.addView();
-            this.clientView();
+            this.clients.fetch();
             return this;
         }
     });
-
     return HomeView;
 });

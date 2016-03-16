@@ -26,23 +26,19 @@ define([
 
         // Delegated events for creating new items, and clearing completed ones.
         events: {
-            'click .delete':		'deleteRec',
+            'click .delete':		'deleteRec'
             //'click .edit':          'editRec'
         },
 
         // At initialization we bind to the relevant events on the `Todos`
         // collection, when items are added or changed. Kick things off by
         // loading any preexisting todos that might be saved in *localStorage*.
-        initialize: function (options) {
-            this.eventBus = options.eventBus;
-            this.eventBus.listenTo(this.eventBus, 'entry:add', this.populateModel);
-            _.bindAll(this, "deleteRec", "populateModel");
-        },
-
-        populateModel: function (opts){
+        initialize: function (opts) {
             if (opts.model) {
                 this.model = opts.model;
             }
+            this.listenTo(this.model, 'change', this.render);
+            _.bindAll(this, "deleteRec");
         },
 
         deleteRec: function (){
@@ -56,8 +52,10 @@ define([
         //},
         // Re-rendering the App just means refreshing the statistics -- the rest
         // of the app doesn't change.
+        //{client: this.model}
         render: function () {
-            this.$el.html(this.template({client: this.model.toJSON()}));
+            this.$el.html(this.template({client: this.model.toJSON}));
+            return this;
         }
     });
 
