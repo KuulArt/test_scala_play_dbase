@@ -13,14 +13,15 @@ define([
     'serialize',
     'models/client',
     'collections/clients',
-    'views/edit'
-], function ($, _, Backbone, template, serialize, Client, Clients, EditView) {
+    'views/edit',
+    'bootstrap'
+], function ($, _, Backbone, template, serialize, Client, Clients, EditView, Bootstrap) {
     'use strict';
 
     // Our overall **AppView** is the top-level piece of UI.
     var ClientView = Backbone.View.extend({
 
-        tagName: "li",
+        tagName: "tr",
         // Compile our stats template
         template: _.template(template),
 
@@ -53,8 +54,8 @@ define([
 
         editRec: function () {
             var view = new EditView({model: this.model, collection: this.collection});
-            view.render().showModal();
-
+            view.render();
+            // this.$(".editModal").append(view.el);
         },
         // Re-rendering the App just means refreshing the statistics -- the rest
         // of the app doesn't change.

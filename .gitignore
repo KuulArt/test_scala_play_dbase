@@ -10,3 +10,5 @@ projectFilesBackup
 projectFilesBackup1
 .sbtserver
 /RUNNING_PID
+.ensime
+/.ensime_cache

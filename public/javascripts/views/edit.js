@@ -13,14 +13,14 @@ define([
 ], function ($, _, Backbone, template, serialize, Client, Clients, ModalView) {
     'use strict';
 
-    var EditView = Backbone.ModalView.extend({
+    var EditView = Backbone.View.extend({
         template: _.template(template),
+        el: '.editModal',
         events: {
             "submit form": "update"
         },
         render: function () {
             $(this.el).html( this.template());
-
             return this;
         },
         initialize: function (opts) {

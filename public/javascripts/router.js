@@ -6,14 +6,14 @@ define([
     'jquery',
     'backbone',
     'views/home',
-    'views/add'
-], function ($, Backbone, Home, AddView) {
+    'views/equipment'
+], function ($, Backbone, Home, Equipment) {
     'use strict';
 
     var Router = Backbone.Router.extend({
         routes: {
             "home":                 "home",    // #help
-            "add":                  "add",     // add CLients
+            "equipment":            "equipment",     // add CLients
             "search/:query":        "search",  // #search/kiwis
             "search/:query/p:page": "search"   // #search/kiwis/p7
         },
@@ -24,8 +24,8 @@ define([
             view.render();
         },
 
-        add: function () {
-            var view = new AddView();
+        equipment: function () {
+            var view = new Equipment();
             view.render();
         },
     });

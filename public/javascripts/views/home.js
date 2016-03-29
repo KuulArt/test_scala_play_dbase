@@ -17,8 +17,9 @@ define([
     'models/client',
     'collections/clients',
     'views/add',
-    'views/client'
-], function ($, _, Backbone, template, serialize, Client, Clients, AddView, ClientView) {
+    'views/client',
+    'bootstrap'
+], function ($, _, Backbone, template, serialize, Client, Clients, AddView, ClientView, Bootstrap) {
     'use strict';
 
     // Our overall **AppView** is the top-level piece of UI.
@@ -52,14 +53,14 @@ define([
         addView: function () {
             var view = new AddView({collection: this.clients});
             view.render();
-            this.$(".home").append(view.el);
+            this.$(".home").html(view.el);
         },
 
         clientView: function (model) {
             //console.log("clientView", model);
             var view = new ClientView({model: model, collection: this.clients});
             view.render();
-            this.$(".home").append(view.el);
+            this.$(".clients").html(view.el);
         },
 
         // Re-rendering the App just means refreshing the statistics -- the rest

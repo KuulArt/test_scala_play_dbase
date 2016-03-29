@@ -5,10 +5,13 @@ import javax.management.Descriptor
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.data.validation.Constraints._
+
 //import play.api.db.slick.DatabaseConfigProvider
 import scala.concurrent.Future
+
 //import slick.driver.JdbcProfile
 import slick.driver.MySQLDriver.api._
+
 //import scala.concurrent.ExecutionContext.Implicits.global
 import javax.inject.{Singleton, Inject}
 import play.api.db.slick.{HasDatabaseConfigProvider, DatabaseConfigProvider}
@@ -28,17 +31,21 @@ object EquipmentForm {
       "name" -> nonEmptyText,
       "price" -> number.verifying(min(0)),
       "available" -> number,
-      "description" -> ignored(String)
+      "description" -> text
     )(Equipment.apply)(Equipment.unapply)
   )
 }
 
 class EquipmentTableDef(tag: Tag) extends Table[Equipment](tag, "equipment") {
 
-  def id = column[Option[Int]]("id", O.PrimaryKey,O.AutoInc)
+  def id = column[Option[Int]]("id", O.PrimaryKey, O.AutoInc)
+
   def name = column[String]("name")
+
   def price = column[Int]("price")
+
   def available = column[Int]("available")
+
   def description = column[String]("description")
 
   override def * =

@@ -11,7 +11,8 @@ require.config({
         underscore: '../lib/underscore/underscore',
         backbone: '../lib/backbone/backbone',
         text: '../lib/text/text',
-        serialize: 'helpers/serialize'
+        serialize: 'helpers/serialize',
+        bootstrap: '../lib/bootstrap/dist/js/bootstrap'
     },
     // The shim config allows us to configure dependencies for
     // scripts that do not call define() to register a module
@@ -26,7 +27,11 @@ require.config({
             ],
             exports: 'Backbone'
         },
-        serialize: ["jquery"]
+        serialize: ["jquery"],
+        bootstrap: {
+            deps: ["jquery"],
+            exports: "$.fn.popover"
+       }
     }
 });
 

@@ -1,9 +1,21 @@
 <form class="submitAdd" action="/add" method="post">
-    Client name: <input type="text" name="name"/><br><br>
-    Enter discount: <input type="int" name="discount"/><br><br>
-    <input type="submit" value="Submit"/>
-    </form>
+    <div class="input-group">
+
+      <input type="text" class="form-control" placeholder="Client Name" aria-describedby="basic-addon1" name="name">
+      <span class="input-group-addon" id="basic-addon1">Client Name</span>
+    </div>
+    <div class="input-group">
+
+      <input type="text" class="form-control" placeholder="Discount" aria-describedby="basic-addon1" name="discount">
+      <span class="input-group-addon" id="basic-addon1">%</span>
+    </div>
+    <!-- Client name: <input type="text" name="name"/><br><br>
+    Enter discount: <input type="int" name="discount"/><br><br> -->
+    <input type="submit" value="Submit" class="btn btn-success"/>
+</form>
 <br>
 <br>
 
-<ul class="clients"></ul>
+<!-- <ul class="clients"></ul> -->
+
+<table class="table table-striped table-bordered"><tbody class="clients"></tbody></table>

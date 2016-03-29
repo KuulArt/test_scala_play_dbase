@@ -28,7 +28,7 @@ class UserClientControl @Inject()(UserService: UserService, dbConfigProvider: Da
   //  }
   implicit val clientWrites = new Writes[UserClient] {
     def writes(client: UserClient) = Json.obj(
-      "id"  -> client.id,
+      "id" -> client.id,
       "name" -> client.name,
       "discount" -> client.discount)
   }
@@ -39,7 +39,7 @@ class UserClientControl @Inject()(UserService: UserService, dbConfigProvider: Da
       formData => {
         val newUser = UserClient(formData.id, formData.name, formData.discount)
         UserService.addUser(newUser).map(res =>
-//          Redirect(routes.Application.index())
+          //          Redirect(routes.Application.index())
           Ok(Json.toJson(newUser))
         )
       }
@@ -59,12 +59,12 @@ class UserClientControl @Inject()(UserService: UserService, dbConfigProvider: Da
     }
   }
 
-  def update(id: Int) = Action.async {implicit request =>
+  def update(id: Int) = Action.async { implicit request =>
     UserForm.form.bindFromRequest.fold(
       formWithErrors => Future.successful(BadRequest(Json.obj("errors" -> formWithErrors.errorsAsJson))),
       formData => {
         val newUser = new UserClient(Some(id), formData.name, formData.discount)
-        println("user:",newUser)
+        println("user:", newUser)
         UserService.updateUser(id, newUser).map(res =>
           //          Redirect(routes.Application.index())
           Ok(Json.toJson(newUser))

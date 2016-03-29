@@ -13,9 +13,8 @@ define([
     'serialize',
     'models/client',
     'collections/clients',
-    'views/client',
-    'helpers/eventBus'
-], function ($, _, Backbone, template, serialize, Client, Clients, ClientView, eventBus) {
+    'views/client'
+], function ($, _, Backbone, template, serialize, Client, Clients, ClientView) {
     'use strict';
 
     // Our overall **AppView** is the top-level piece of UI.

@@ -3,14 +3,23 @@
 # --- !Ups
 
 CREATE TABLE clients(
-    ID INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     discount TINYINT(3) unsigned,
-    PRIMARY KEY ( ID )
+    PRIMARY KEY ( id )
 );
 
-INSERT INTO clients values (null, 'prosound', 20);
+CREATE TABLE equipment(
+    id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL ,
+    price INT(255) NOT NULL ,
+    available TINYINT(4) ,
+    description VARCHAR(255),
+    PRIMARY KEY (id)
+);
+
 
 # --- !Downs
 
 DROP TABLE clients;
+DROP TABLE equipment;
